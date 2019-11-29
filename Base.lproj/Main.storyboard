@@ -10,7 +10,7 @@
         <!--Drugs-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController title="Drugs" id="9pv-A4-QxB" customClass="FirstViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Drugs" id="9pv-A4-QxB" customClass="DrugsViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
         <!--Settings-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController title="Settings" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" id="8rJ-Kc-sve" customClass="SettingsViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,7 +80,7 @@
         <!--Map-->
         <scene sceneID="QPM-Mc-5FG">
             <objects>
-                <viewController title="Map" id="C32-cy-nNP" sceneMemberID="viewController">
+                <viewController title="Map" id="C32-cy-nNP" customClass="MapViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uNj-8P-Msa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
