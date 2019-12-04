@@ -10,42 +10,256 @@
         <!--Drugs-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController title="Drugs" id="9pv-A4-QxB" customClass="FirstViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Drugs" id="9pv-A4-QxB" customClass="DrugsViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="131.5" y="426.5" width="151" height="43"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="110" y="477.5" width="194.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="d2d-c4-riS" userLabel="Mode View">
+                                <rect key="frame" x="158.5" y="64" width="97" height="31"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="E5d-DJ-rrr">
+                                        <rect key="frame" x="0.0" y="0.0" width="97" height="32"/>
+                                        <segments>
+                                            <segment title="View"/>
+                                            <segment title="Edit"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fqL-27-U3E" userLabel="Name View">
+                                <rect key="frame" x="20" y="115" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drug Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6Y-DE-4Yr" userLabel="Drug Name Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TIF-A0-SfB" userLabel="Drug Name Text Field">
+                                        <rect key="frame" x="83.5" y="0.0" width="290.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eWH-R2-nQ5" userLabel="Type View">
+                                <rect key="frame" x="20" y="169" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drug Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUp-p2-H0e" userLabel="Drug Type Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="67" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUD-Lw-hfK" userLabel="Drug Type Text Field">
+                                        <rect key="frame" x="87" y="0.0" width="287" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zuE-r2-5kc" userLabel="Half-Life-Protein View">
+                                <rect key="frame" x="20" y="223" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Half-Life (hr)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0T6-Te-Zsq" userLabel="Half-Life Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9z7-4W-Nzb" userLabel="Half-Life Text Field">
+                                        <rect key="frame" x="93.5" y="0.0" width="68" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="68" id="CNd-1c-rpZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein Binding (%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIO-QW-m7N" userLabel="Protein Binding Label">
+                                        <rect key="frame" x="171.5" y="0.0" width="124" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1nW-qr-wkG" userLabel="Protein Binding Text Field">
+                                        <rect key="frame" x="305.5" y="0.0" width="68.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QoP-Xw-NT2" userLabel="Distribution View">
+                                <rect key="frame" x="20" y="277" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume of Distribution" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsv-ow-VVf" userLabel="Distribution Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LaS-ED-4tW" userLabel="Distribution Text Field">
+                                        <rect key="frame" x="163.5" y="0.0" width="210.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5HH-3K-Edv" userLabel="Dose Normal View">
+                                <rect key="frame" x="20" y="331" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dose of Normal Renal Function" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFs-2R-9QN" userLabel="Dose Normal Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2JA-bH-tIM">
+                                        <rect key="frame" x="220" y="0.0" width="154" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zey-Mm-NUb" userLabel="Urinary Excretion View">
+                                <rect key="frame" x="20" y="385" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Urinary Excretion (%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BB6-9U-m87" userLabel="Excretion Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="136.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mk2-ft-W9a" userLabel="Excretion Text Field">
+                                        <rect key="frame" x="156.5" y="0.0" width="217.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9qD-5o-UPd" userLabel="Manufacturer Name View">
+                                <rect key="frame" x="20" y="439" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manufacturer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oa9-uc-IyS" userLabel="Manufacturer Name Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="128.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rlZ-VE-Szm" userLabel="Manufacturer Name Text Field">
+                                        <rect key="frame" x="148.5" y="0.0" width="225.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ami-nF-kH5" userLabel="Manufacturer Street Address View">
+                                <rect key="frame" x="20" y="493" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqo-I6-Hbq" userLabel="Street Address Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="96" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tsG-Vs-dX2" userLabel="Street Address Text Field">
+                                        <rect key="frame" x="116" y="0.0" width="258" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jzc-tD-fZr" userLabel="City State Zip View">
+                                <rect key="frame" x="20" y="547" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57J-bQ-RPA" userLabel="City Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="26" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3dc-pw-g1n" userLabel="City Text Field">
+                                        <rect key="frame" x="36" y="0.0" width="124" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzU-3E-ncY" userLabel="State Label">
+                                        <rect key="frame" x="170" y="0.0" width="34" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gem-LL-ZzS" userLabel="State Text Field">
+                                        <rect key="frame" x="214" y="0.0" width="51" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="51" id="X5K-Hw-DOk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORw-bU-LKt" userLabel="Zip Label">
+                                        <rect key="frame" x="275" y="0.0" width="21" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qSa-fw-Pdm" userLabel="Zip Text Field">
+                                        <rect key="frame" x="306" y="0.0" width="68" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="68" id="oMH-qN-lt7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Zey-Mm-NUb" secondAttribute="trailing" constant="20" id="0F1-v4-NA2"/>
+                            <constraint firstItem="d2d-c4-riS" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="263-Di-6CJ"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="zuE-r2-5kc" secondAttribute="trailing" constant="20" id="5BA-50-Al2"/>
+                            <constraint firstItem="Jzc-tD-fZr" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="CEV-4w-bhU"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="QoP-Xw-NT2" secondAttribute="trailing" constant="20" id="Df6-xq-VUH"/>
+                            <constraint firstItem="ami-nF-kH5" firstAttribute="top" secondItem="9qD-5o-UPd" secondAttribute="bottom" constant="20" id="H82-X6-hmV"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="5HH-3K-Edv" secondAttribute="trailing" constant="20" id="IvX-sZ-xTV"/>
+                            <constraint firstItem="5HH-3K-Edv" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="JJS-Gi-xcJ"/>
+                            <constraint firstItem="QoP-Xw-NT2" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="KHm-ve-SmN"/>
+                            <constraint firstItem="Zey-Mm-NUb" firstAttribute="top" secondItem="5HH-3K-Edv" secondAttribute="bottom" constant="20" id="KSR-UV-vkN"/>
+                            <constraint firstItem="9qD-5o-UPd" firstAttribute="top" secondItem="Zey-Mm-NUb" secondAttribute="bottom" constant="20" id="Ngh-YW-pXY"/>
+                            <constraint firstItem="5HH-3K-Edv" firstAttribute="top" secondItem="QoP-Xw-NT2" secondAttribute="bottom" constant="20" id="NlV-YM-EKn"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="9qD-5o-UPd" secondAttribute="trailing" constant="20" id="OUI-h2-Y77"/>
+                            <constraint firstItem="Jzc-tD-fZr" firstAttribute="top" secondItem="ami-nF-kH5" secondAttribute="bottom" constant="20" id="PXL-xz-uXd"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="ami-nF-kH5" secondAttribute="trailing" constant="20" id="S7D-he-BKG"/>
+                            <constraint firstItem="QoP-Xw-NT2" firstAttribute="top" secondItem="zuE-r2-5kc" secondAttribute="bottom" constant="20" id="SxF-kv-I2a"/>
+                            <constraint firstItem="eWH-R2-nQ5" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="TQN-OO-en4"/>
+                            <constraint firstItem="fqL-27-U3E" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="Wbe-YK-YIn"/>
+                            <constraint firstItem="zuE-r2-5kc" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Y22-nd-4kW"/>
+                            <constraint firstItem="5HH-3K-Edv" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="YPp-Kk-HI2"/>
+                            <constraint firstItem="zuE-r2-5kc" firstAttribute="top" secondItem="eWH-R2-nQ5" secondAttribute="bottom" constant="20" id="alB-cb-PCc"/>
+                            <constraint firstItem="zuE-r2-5kc" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="bDf-Qf-rLY"/>
+                            <constraint firstItem="9qD-5o-UPd" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="dNX-fD-54J"/>
+                            <constraint firstItem="fqL-27-U3E" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="fw7-Fs-UPI"/>
+                            <constraint firstItem="Zey-Mm-NUb" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="gaq-nt-1Qd"/>
+                            <constraint firstItem="eWH-R2-nQ5" firstAttribute="top" secondItem="d2d-c4-riS" secondAttribute="bottom" constant="74" id="m6z-8D-iRg"/>
+                            <constraint firstAttribute="trailing" secondItem="Jzc-tD-fZr" secondAttribute="trailing" constant="20" id="mtk-7r-Smt"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="eWH-R2-nQ5" secondAttribute="trailing" constant="20" id="pW9-GB-roL"/>
+                            <constraint firstItem="eWH-R2-nQ5" firstAttribute="top" secondItem="fqL-27-U3E" secondAttribute="bottom" constant="20" id="puL-hF-oNT"/>
+                            <constraint firstItem="d2d-c4-riS" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="20" id="rfg-P1-3LQ"/>
+                            <constraint firstItem="ami-nF-kH5" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="slC-3T-MBA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Drugs" image="lightbulb.fill" catalog="system" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="-713"/>
+            <point key="canvasLocation" x="747.82608695652175" y="-713.16964285714278"/>
         </scene>
         <!--Settings-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController title="Settings" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" id="8rJ-Kc-sve" customClass="SettingsViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +285,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="hammer.fill" catalog="system" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,7 +294,7 @@
         <!--Map-->
         <scene sceneID="QPM-Mc-5FG">
             <objects>
-                <viewController title="Map" id="C32-cy-nNP" sceneMemberID="viewController">
+                <viewController title="Map" id="C32-cy-nNP" customClass="MapViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uNj-8P-Msa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +313,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tGs-Np-3Kz"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ewt-zs-9Yc"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="globe" catalog="system" id="ewt-zs-9Yc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQs-kf-FuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,7 +340,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="globe" catalog="system" width="64" height="60"/>
+        <image name="hammer.fill" catalog="system" width="64" height="56"/>
+        <image name="lightbulb.fill" catalog="system" width="56" height="64"/>
     </resources>
 </document>
