@@ -28,7 +28,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ya0-Ry-Nmn" userLabel="Fields Wrapper View">
-                                <rect key="frame" x="15" y="105" width="384" height="471"/>
+                                <rect key="frame" x="15" y="110" width="384" height="471"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fqL-27-U3E" userLabel="Name View">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="34"/>
@@ -243,9 +243,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="ya0-Ry-Nmn" secondAttribute="trailing" constant="15" id="A1E-av-FX3"/>
-                            <constraint firstItem="ya0-Ry-Nmn" firstAttribute="top" secondItem="iNq-2w-YJa" secondAttribute="bottom" constant="15" id="Ujq-0v-oza"/>
                             <constraint firstItem="iNq-2w-YJa" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="15" id="a30-t2-3zg"/>
                             <constraint firstItem="ya0-Ry-Nmn" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="15" id="cKp-sN-mAI"/>
+                            <constraint firstItem="ya0-Ry-Nmn" firstAttribute="top" secondItem="iNq-2w-YJa" secondAttribute="bottom" constant="20" id="dee-Gy-Pgz"/>
                             <constraint firstItem="iNq-2w-YJa" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="ndD-Mb-TTF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
