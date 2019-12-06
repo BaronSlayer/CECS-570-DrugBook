@@ -10,10 +10,28 @@ import UIKit
 
 class DrugsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var sgmtChangeMode: UISegmentedControl!
+    @IBOutlet weak var textDrugName: UITextField!
+    @IBOutlet weak var textDrugType: UITextField!
+    @IBOutlet weak var textHalfLife: UITextField!
+    @IBOutlet weak var textProteinBinding: UITextField!
+    @IBOutlet weak var textVolumeOfDistribution: UITextField!
+    @IBOutlet weak var textDoseOfNRF: UITextField!
+    @IBOutlet weak var textUrinaryExcretion: UITextField!
+    @IBOutlet weak var textManufactName: UITextField!
+    @IBOutlet weak var textManufactAddress: UITextField!
+    @IBOutlet weak var textManufactCity: UITextField!
+    @IBOutlet weak var textManufactState: UITextField!
+    @IBOutlet weak var textManufactZip: UITextField!
+    @IBOutlet weak var labelDateAvailable: UILabel!
+    @IBOutlet weak var buttonChangeDate: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    @IBAction func changeMode(_ sender: Any) {
     }
     
     override func viewWillAppear(_ animated: Bool) {

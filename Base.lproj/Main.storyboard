@@ -24,6 +24,9 @@
                                             <segment title="View"/>
                                             <segment title="Edit"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="changeMode:" destination="9pv-A4-QxB" eventType="valueChanged" id="aCR-JJ-A0L"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
@@ -271,7 +274,22 @@
                     </view>
                     <navigationItem key="navigationItem" title="Drug" id="g7V-Nm-5XJ"/>
                     <connections>
+                        <outlet property="buttonChangeDate" destination="b3V-9d-Rka" id="uzh-3C-juo"/>
+                        <outlet property="labelDateAvailable" destination="3uS-EJ-ink" id="zlw-T6-UPe"/>
                         <outlet property="scrollView" destination="0CJ-AF-Wdr" id="kWn-BT-nYN"/>
+                        <outlet property="sgmtChangeMode" destination="E5d-DJ-rrr" id="nJf-Vt-tbo"/>
+                        <outlet property="textDoseOfNRF" destination="2JA-bH-tIM" id="jEF-Mg-kwg"/>
+                        <outlet property="textDrugName" destination="TIF-A0-SfB" id="jVI-xu-p9O"/>
+                        <outlet property="textDrugType" destination="fUD-Lw-hfK" id="0Vn-Fe-SoH"/>
+                        <outlet property="textHalfLife" destination="9z7-4W-Nzb" id="Wh3-zJ-IPT"/>
+                        <outlet property="textManufactAddress" destination="tsG-Vs-dX2" id="J96-sO-Hlx"/>
+                        <outlet property="textManufactCity" destination="3dc-pw-g1n" id="I8J-Jb-VeI"/>
+                        <outlet property="textManufactName" destination="rlZ-VE-Szm" id="ebV-66-4nZ"/>
+                        <outlet property="textManufactState" destination="Gem-LL-ZzS" id="9gS-5n-HXU"/>
+                        <outlet property="textManufactZip" destination="qSa-fw-Pdm" id="0CC-2w-POD"/>
+                        <outlet property="textProteinBinding" destination="1nW-qr-wkG" id="TV5-7k-UaY"/>
+                        <outlet property="textUrinaryExcretion" destination="Mk2-ft-W9a" id="E4M-ga-Klr"/>
+                        <outlet property="textVolumeOfDistribution" destination="LaS-ED-4tW" id="Bj5-28-VAa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
