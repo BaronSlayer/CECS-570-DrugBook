@@ -9,6 +9,9 @@
 import UIKit
 
 class DrugsViewController: UIViewController {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var sgmtChangeMode: UISegmentedControl!
     @IBOutlet weak var textDrugName: UITextField!
@@ -26,12 +29,35 @@ class DrugsViewController: UIViewController {
     @IBOutlet weak var labelDateAvailable: UILabel!
     @IBOutlet weak var buttonChangeDate: UIButton!
     
+    @IBAction func changeMode(_ sender: Any) {
+        let textFields: [UITextField] = [textDrugName, textDrugType, textHalfLife, textProteinBinding, textVolumeOfDistribution, textDoseOfNRF, textUrinaryExcretion, textManufactName, textManufactAddress, textManufactCity, textManufactState, textManufactZip]
+        if sgmtChangeMode.selectedSegmentIndex == 0 {
+            for textField in textFields {
+                textField.isEnabled = false
+                textField.borderStyle = UITextField.BorderStyle.none
+            }
+            buttonChangeDate.isHidden = true
+            navigationItem.rightBarButtonItem = nil
+        }
+        else if sgmtChangeMode.selectedSegmentIndex == 1 {
+            for textField in textFields {
+                textField.isEnabled = true
+                textField.borderStyle = UITextField.BorderStyle.roundedRect
+            }
+            buttonChangeDate.isHidden = false
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveDrug))
+        }
+    }
+    
+    @objc func saveDrug() {
+        appDelegate.saveContext()
+        sgmtChangeMode.selectedSegmentIndex = 0
+        changeMode(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-    
-    @IBAction func changeMode(_ sender: Any) {
     }
     
     override func viewWillAppear(_ animated: Bool) {
