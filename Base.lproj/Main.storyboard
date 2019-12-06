@@ -237,6 +237,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3V-9d-Rka" userLabel="Change Date Button">
                                                         <rect key="frame" x="321" y="0.0" width="53" height="30"/>
                                                         <state key="normal" title="Change"/>
+                                                        <connections>
+                                                            <segue destination="nUa-PP-EYk" kind="show" id="RRH-az-ivM"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -266,7 +269,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <navigationItem key="navigationItem" id="obv-Fr-x1e"/>
+                    <navigationItem key="navigationItem" title="Drug" id="g7V-Nm-5XJ"/>
                     <connections>
                         <outlet property="scrollView" destination="0CJ-AF-Wdr" id="kWn-BT-nYN"/>
                     </connections>
@@ -274,6 +277,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1657.9710144927537" y="-713.16964285714278"/>
+        </scene>
+        <!--Date Available-->
+        <scene sceneID="GBJ-BK-yiU">
+            <objects>
+                <viewController title="Date Available" id="nUa-PP-EYk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5a3-Kg-0bJ" userLabel="Date Picker View">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Cax-Fs-7SU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="216"/>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Cax-Fs-7SU" firstAttribute="trailing" secondItem="Qbo-YH-c2u" secondAttribute="trailing" id="8oo-Kr-ozG"/>
+                            <constraint firstItem="Cax-Fs-7SU" firstAttribute="leading" secondItem="Qbo-YH-c2u" secondAttribute="leading" id="E89-fK-Kmw"/>
+                            <constraint firstItem="Cax-Fs-7SU" firstAttribute="top" secondItem="Qbo-YH-c2u" secondAttribute="top" id="zfE-BB-iHd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qbo-YH-c2u"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UZw-IH-nhD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eU2-5M-EOg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2445" y="-713"/>
         </scene>
         <!--Settings-->
         <scene sceneID="wg7-f3-ORb">
@@ -348,7 +377,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ZiP-SU-UIA" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="Wf7-3b-JoU" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="C32-cy-nNP" kind="relationship" relationship="viewControllers" id="zZk-O8-ENm"/>
                     </connections>
@@ -357,22 +386,22 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Drugs-->
-        <scene sceneID="JLX-sA-tsW">
+        <!--Navigation Controller-->
+        <scene sceneID="F8c-e1-6Xq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZiP-SU-UIA" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wf7-3b-JoU" userLabel="Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Drugs" image="lightbulb.fill" catalog="system" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="omb-LW-FhF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sFb-qg-nif">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="m0r-Ye-gIh"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="EBy-Mg-ATg"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kfr-r2-RQw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFh-Sv-AMa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="747.82608695652175" y="-713.16964285714278"/>
         </scene>
