@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNq-2w-YJa" userLabel="Mode View">
-                                <rect key="frame" x="158.5" y="59" width="97" height="31"/>
+                                <rect key="frame" x="158.5" y="103" width="97" height="31"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="E5d-DJ-rrr">
                                         <rect key="frame" x="0.0" y="0.0" width="97" height="32"/>
@@ -28,7 +28,7 @@
                                 </subviews>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="0CJ-AF-Wdr">
-                                <rect key="frame" x="0.0" y="110" width="414" height="683"/>
+                                <rect key="frame" x="0.0" y="154" width="414" height="639"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ya0-Ry-Nmn" userLabel="Fields Wrapper View">
                                         <rect key="frame" x="20" y="20" width="374" height="471"/>
@@ -266,14 +266,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Drugs" image="lightbulb.fill" catalog="system" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" id="obv-Fr-x1e"/>
                     <connections>
                         <outlet property="scrollView" destination="0CJ-AF-Wdr" id="kWn-BT-nYN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="747.82608695652175" y="-713.16964285714278"/>
+            <point key="canvasLocation" x="1657.9710144927537" y="-713.16964285714278"/>
         </scene>
         <!--Settings-->
         <scene sceneID="wg7-f3-ORb">
@@ -348,7 +348,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="ZiP-SU-UIA" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="C32-cy-nNP" kind="relationship" relationship="viewControllers" id="zZk-O8-ENm"/>
                     </connections>
@@ -356,6 +356,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Drugs-->
+        <scene sceneID="JLX-sA-tsW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZiP-SU-UIA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Drugs" image="lightbulb.fill" catalog="system" id="acW-dT-cKf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="omb-LW-FhF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="m0r-Ye-gIh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kfr-r2-RQw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="747.82608695652175" y="-713.16964285714278"/>
         </scene>
     </scenes>
     <resources>
