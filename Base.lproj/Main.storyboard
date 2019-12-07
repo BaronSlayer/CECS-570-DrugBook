@@ -353,6 +353,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDY-nq-oL5" userLabel="Sort Order Switch">
                                                 <rect key="frame" x="142.5" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="sortDirection:" destination="8rJ-Kc-sve" eventType="valueChanged" id="kWm-Ue-3bj"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -367,6 +370,10 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="hammer.fill" catalog="system" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="sortOrderPicker" destination="fxQ-il-eQv" id="hTq-3S-WQa"/>
+                        <outlet property="sortOrderSwitch" destination="cDY-nq-oL5" id="RfZ-7z-eCc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
