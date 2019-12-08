@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
-class DrugsViewController: UIViewController {
+class DrugsViewController: UIViewController, UITextFieldDelegate {
     
+    var selectedDrug: Drug?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -50,6 +52,10 @@ class DrugsViewController: UIViewController {
     }
     
     @objc func saveDrug() {
+        if selectedDrug == nil {
+            let context = appDelegate.persistentContainer.viewContext
+            selectedDrug = Drug(context: context)
+        }
         appDelegate.saveContext()
         sgmtChangeMode.selectedSegmentIndex = 0
         changeMode(self)
@@ -57,6 +63,14 @@ class DrugsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.changeMode(self)
+        
+        let textFields: [UITextField] = [textDrugName, textDrugType, textHalfLife, textProteinBinding, textVolumeOfDistribution, textDoseOfNRF, textUrinaryExcretion, textManufactName, textManufactAddress, textManufactCity, textManufactState, textManufactZip]
+        for textfield in textFields {
+            textfield.addTarget(self,
+                                action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)),
+                                for: UIControl.Event.editingDidEnd)
+        }
         
     }
     
@@ -68,6 +82,28 @@ class DrugsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.unregisterKeyboardNotifications()
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if selectedDrug == nil {
+            let context = appDelegate.persistentContainer.viewContext
+            selectedDrug = Drug(context: context)
+        }
+        selectedDrug?.drugName = textDrugName.text
+        selectedDrug?.drugType = textDrugType.text
+        selectedDrug?.halfLife = (textHalfLife.text! as NSString).doubleValue
+        selectedDrug?.proteinBinding = (textProteinBinding.text! as NSString).doubleValue
+        selectedDrug?.volumeOfDistribution = (textVolumeOfDistribution.text! as NSString).doubleValue
+        selectedDrug?.doseOfNormalRenalFunction = textDoseOfNRF.text
+        selectedDrug?.urinaryExcretion = textUrinaryExcretion.text
+        selectedDrug?.manufacturerName = textManufactName.text
+        selectedDrug?.streetAddress = textManufactAddress.text
+        selectedDrug?.city = textManufactCity.text
+        selectedDrug?.state = textManufactState.text
+        selectedDrug?.zip = textManufactZip.text
+        
+        return true
+        
     }
     
     func registerKeyboardNotifications() {
