@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DrugsViewController: UIViewController, UITextFieldDelegate {
+class DrugsViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate {
     
     var selectedDrug: Drug?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -61,6 +61,13 @@ class DrugsViewController: UIViewController, UITextFieldDelegate {
         changeMode(self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segueDateAvailable") {
+            let dateController = segue.destination as! DateViewController
+            dateController.delegate = self
+        }
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.changeMode(self)
@@ -89,9 +96,10 @@ class DrugsViewController: UIViewController, UITextFieldDelegate {
             let context = appDelegate.persistentContainer.viewContext
             selectedDrug = Drug(context: context)
         }
+        
         selectedDrug?.drugName = textDrugName.text
         selectedDrug?.drugType = textDrugType.text
-        selectedDrug?.halfLife = (textHalfLife.text! as NSString).doubleValue
+        selectedDrug?.halfLife = textHalfLife.text
         selectedDrug?.proteinBinding = (textProteinBinding.text! as NSString).doubleValue
         selectedDrug?.volumeOfDistribution = (textVolumeOfDistribution.text! as NSString).doubleValue
         selectedDrug?.doseOfNormalRenalFunction = textDoseOfNRF.text
@@ -104,6 +112,18 @@ class DrugsViewController: UIViewController, UITextFieldDelegate {
         
         return true
         
+    }
+    
+    func dateChanged(date: Date) {
+        if selectedDrug == nil {
+            let context = appDelegate.persistentContainer.viewContext
+            selectedDrug = Drug(context: context)
+        }
+        
+        selectedDrug?.dateAvailable = date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        labelDateAvailable.text = formatter.string(from: date)
     }
     
     func registerKeyboardNotifications() {

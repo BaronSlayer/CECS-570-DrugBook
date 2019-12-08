@@ -6,7 +6,7 @@
         <attribute name="doseOfNormalRenalFunction" optional="YES" attributeType="String"/>
         <attribute name="drugName" optional="YES" attributeType="String"/>
         <attribute name="drugType" optional="YES" attributeType="String"/>
-        <attribute name="halfLife" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="halfLife" optional="YES" attributeType="String"/>
         <attribute name="manufacturerName" optional="YES" attributeType="String"/>
         <attribute name="proteinBinding" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="state" optional="YES" attributeType="String"/>
@@ -16,6 +16,6 @@
         <attribute name="zip" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Drug" positionX="-63" positionY="-18" width="128" height="28"/>
+        <element name="Drug" positionX="-63" positionY="-18" width="128" height="238"/>
     </elements>
 </model>

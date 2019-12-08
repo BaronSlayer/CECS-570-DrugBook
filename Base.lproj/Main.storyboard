@@ -61,7 +61,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUD-Lw-hfK" userLabel="Drug Type Text Field">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUD-Lw-hfK" userLabel="Drug Type Text Field">
                                                         <rect key="frame" x="87" y="0.0" width="287" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -241,7 +241,7 @@
                                                         <rect key="frame" x="321" y="0.0" width="53" height="30"/>
                                                         <state key="normal" title="Change"/>
                                                         <connections>
-                                                            <segue destination="nUa-PP-EYk" kind="show" id="RRH-az-ivM"/>
+                                                            <segue destination="nUa-PP-EYk" kind="show" identifier="segueDateAvailable" id="RRH-az-ivM"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -294,12 +294,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1657.9710144927537" y="-713.16964285714278"/>
+            <point key="canvasLocation" x="2259" y="-713"/>
         </scene>
         <!--Date Available-->
         <scene sceneID="GBJ-BK-yiU">
             <objects>
-                <viewController title="Date Available" id="nUa-PP-EYk" sceneMemberID="viewController">
+                <viewController title="Date Available" id="nUa-PP-EYk" customClass="DateViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5a3-Kg-0bJ" userLabel="Date Picker View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -317,10 +317,13 @@
                         <viewLayoutGuide key="safeArea" id="Qbo-YH-c2u"/>
                     </view>
                     <navigationItem key="navigationItem" id="UZw-IH-nhD"/>
+                    <connections>
+                        <outlet property="datepickerDateAvailable" destination="Cax-Fs-7SU" id="UY4-Xq-uS7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eU2-5M-EOg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2445" y="-713"/>
+            <point key="canvasLocation" x="3133" y="-713"/>
         </scene>
         <!--Settings-->
         <scene sceneID="wg7-f3-ORb">
@@ -340,7 +343,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxQ-il-eQv" userLabel="Sort Order Picker View">
-                                        <rect key="frame" x="0.0" y="51" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="50.5" width="320" height="216"/>
                                     </pickerView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="F6m-yT-cve" userLabel="Sort Order View">
                                         <rect key="frame" x="64.5" y="296.5" width="191.5" height="31"/>
@@ -424,7 +427,58 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-668" y="0.0"/>
+        </scene>
+        <!--Drugs Table View Controller-->
+        <scene sceneID="R7e-3V-rvM">
+            <objects>
+                <tableViewController id="epG-jE-iu6" customClass="DrugsTableViewController" customModule="DrugBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ViJ-14-Wvj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DrugsCell" textLabel="PiX-BF-nei" detailTextLabel="UQX-4S-d2y" style="IBUITableViewCellStyleSubtitle" id="6d0-Fg-8So" userLabel="Drugs View Cell">
+                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6d0-Fg-8So" id="mPx-bM-vk4">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PiX-BF-nei">
+                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UQX-4S-d2y">
+                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="epG-jE-iu6" id="Ni4-QE-3P6"/>
+                            <outlet property="delegate" destination="epG-jE-iu6" id="TkQ-oU-B2j"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="cXr-bq-1m9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8ph-Rw-zfx">
+                            <connections>
+                                <segue destination="9pv-A4-QxB" kind="show" identifier="AddDrug" id="sr6-Q6-Jxz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ifc-sX-HkV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1265" y="-713"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F8c-e1-6Xq">
@@ -438,12 +492,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="EBy-Mg-ATg"/>
+                        <segue destination="epG-jE-iu6" kind="relationship" relationship="rootViewController" id="Wcj-H4-aBD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFh-Sv-AMa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="747.82608695652175" y="-713.16964285714278"/>
+            <point key="canvasLocation" x="423" y="-713"/>
         </scene>
     </scenes>
     <resources>
