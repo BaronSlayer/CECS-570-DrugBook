@@ -60,6 +60,7 @@ class DrugsTableViewController: UITableViewController {
         } catch let error as NSError {
             print("could not fetch. \(error), \(error.userInfo)")
         }
+        
     }
 
     /*
@@ -70,17 +71,55 @@ class DrugsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            
+            let drug = drugs[indexPath.row] as? Drug
+            let context = appDelegate.persistentContainer.viewContext
+            context.delete(drug!)
+            do {
+                try context.save()
+            }
+            catch {
+                fatalError("Error saving context: \(error)")
+            }
+            loadDataFromDatabase()
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
+    /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let thisDrug = drugs[indexPath.row] as? Drug
+        let name = thisDrug!.drugName!
+        let actionHandler = { (action:UIAlertAction!) -> Void in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "DrugsController")
+                as? DrugsViewController
+            controller?.selectedDrug = thisDrug
+            self.navigationController?.pushViewController(controller!, animated: true)
+        }
+        
+        let alertController = UIAlertController(title: "Drug selected",
+                                                message:  "Selected row: \(indexPath.row) (\(name))",
+            preferredStyle: .alert)
+        
+        let actionCancel = UIAlertAction(title: "Cancel",
+                                         style: .cancel,
+                                         handler: nil)
+        let actionDetails = UIAlertAction(title: "Show Details",
+                                          style: .default,
+                                          handler: actionHandler)
+        alertController.addAction(actionCancel)
+        alertController.addAction(actionDetails)
+        present(alertController, animated: true, completion: nil)
+    }
+ */
 
     /*
     // Override to support rearranging the table view.
@@ -97,14 +136,17 @@ class DrugsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        
+        if segue.identifier == "EditDrug" {
+            let drugController = segue.destination as? DrugsViewController
+            let selectedRow = self.tableView.indexPath(for: sender as! UITableViewCell)?.row
+            let thisDrug = drugs[selectedRow!] as? Drug
+            drugController?.selectedDrug = thisDrug!
+        }
+     }
 
 }

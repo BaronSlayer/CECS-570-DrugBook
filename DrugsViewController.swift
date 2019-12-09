@@ -70,6 +70,27 @@ class DrugsViewController: UIViewController, UITextFieldDelegate, DateController
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if selectedDrug != nil {
+            textDrugName.text = selectedDrug!.drugName
+            textDrugType.text = selectedDrug!.drugType
+            textHalfLife.text = selectedDrug!.halfLife
+            textProteinBinding.text = String(selectedDrug!.proteinBinding)
+            textVolumeOfDistribution.text = String(selectedDrug!.volumeOfDistribution)
+            textDoseOfNRF.text = selectedDrug!.doseOfNormalRenalFunction
+            textUrinaryExcretion.text = selectedDrug!.urinaryExcretion
+            textManufactName.text = selectedDrug!.manufacturerName
+            textManufactAddress.text = selectedDrug!.streetAddress
+            textManufactCity.text = selectedDrug!.city
+            textManufactState.text = selectedDrug!.state
+            textManufactZip.text = selectedDrug!.zip
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            if selectedDrug!.dateAvailable != nil {
+                labelDateAvailable.text = formatter.string(from: selectedDrug!.dateAvailable!)
+            }
+        }
+        
         self.changeMode(self)
         
         let textFields: [UITextField] = [textDrugName, textDrugType, textHalfLife, textProteinBinding, textVolumeOfDistribution, textDoseOfNRF, textUrinaryExcretion, textManufactName, textManufactAddress, textManufactCity, textManufactState, textManufactZip]
@@ -78,7 +99,7 @@ class DrugsViewController: UIViewController, UITextFieldDelegate, DateController
                                 action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)),
                                 for: UIControl.Event.editingDidEnd)
         }
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

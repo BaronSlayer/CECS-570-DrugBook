@@ -17,6 +17,7 @@ var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        
         let settings = UserDefaults.standard
         
         if settings.string(forKey: Constants.kSortField) == nil {
@@ -28,8 +29,8 @@ var window: UIWindow?
         }
         
         settings.synchronize()
-        NSLog("Sort field: %@", settings.string(forKey: Constants.kSortField)!)
-        NSLog("Sort direction: \(settings.bool(forKey: Constants.kSortDirectionAscending))")
+//        NSLog("Sort field: %@", settings.string(forKey: Constants.kSortField)!)
+//        NSLog("Sort direction: \(settings.bool(forKey: Constants.kSortDirectionAscending))")
         
         return true
     }
