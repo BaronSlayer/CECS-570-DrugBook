@@ -423,12 +423,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="icS-Mi-zSR">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icS-Mi-zSR">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="b2y-DH-zdT">
+                                <rect key="frame" x="93.5" y="784" width="227" height="32"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Hybrid"/>
+                                    <segment title="Satellite"/>
+                                </segments>
+                                <connections>
+                                    <action selector="mapTypeChanged:" destination="C32-cy-nNP" eventType="valueChanged" id="pAj-K9-aV0"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="tGs-Np-3Kz" firstAttribute="bottom" secondItem="b2y-DH-zdT" secondAttribute="bottom" constant="1" id="0dv-nJ-44Z"/>
+                            <constraint firstItem="b2y-DH-zdT" firstAttribute="centerX" secondItem="uNj-8P-Msa" secondAttribute="centerX" id="7pj-Y2-feN"/>
                             <constraint firstItem="tGs-Np-3Kz" firstAttribute="bottom" secondItem="icS-Mi-zSR" secondAttribute="bottom" id="T8V-hg-8bY"/>
                             <constraint firstItem="icS-Mi-zSR" firstAttribute="leading" secondItem="tGs-Np-3Kz" secondAttribute="leading" id="YpK-iD-hfL"/>
                             <constraint firstItem="tGs-Np-3Kz" firstAttribute="trailing" secondItem="icS-Mi-zSR" secondAttribute="trailing" id="blw-lw-XZ0"/>
@@ -438,6 +451,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="globe" catalog="system" id="ewt-zs-9Yc"/>
                     <connections>
+                        <outlet property="mapTypeSegmentedCtrl" destination="b2y-DH-zdT" id="6vw-QS-JXO"/>
                         <outlet property="mapView" destination="icS-Mi-zSR" id="4v6-C0-6IV"/>
                     </connections>
                 </viewController>
