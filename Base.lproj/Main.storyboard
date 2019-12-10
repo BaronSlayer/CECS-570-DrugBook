@@ -423,29 +423,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icS-Mi-zSR">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J8j-y1-oeu" userLabel="Map Stack View">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                            </mapView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="b2y-DH-zdT">
-                                <rect key="frame" x="93.5" y="784" width="227" height="32"/>
-                                <segments>
-                                    <segment title="Standard"/>
-                                    <segment title="Hybrid"/>
-                                    <segment title="Satellite"/>
-                                </segments>
-                                <connections>
-                                    <action selector="mapTypeChanged:" destination="C32-cy-nNP" eventType="valueChanged" id="pAj-K9-aV0"/>
-                                </connections>
-                            </segmentedControl>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icS-Mi-zSR">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
+                                    </mapView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="icS-Mi-zSR" firstAttribute="top" secondItem="J8j-y1-oeu" secondAttribute="top" id="AgV-yZ-i0Z"/>
+                                    <constraint firstAttribute="bottom" secondItem="icS-Mi-zSR" secondAttribute="bottom" id="MeB-Vr-2RR"/>
+                                    <constraint firstItem="icS-Mi-zSR" firstAttribute="leading" secondItem="J8j-y1-oeu" secondAttribute="leading" id="Y9Y-gT-f5B"/>
+                                    <constraint firstAttribute="trailing" secondItem="icS-Mi-zSR" secondAttribute="trailing" id="beN-bG-Qae"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6AI-YA-wsd" userLabel="SegmentedCtrl Satck View">
+                                <rect key="frame" x="93.5" y="784" width="227" height="31"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="b2y-DH-zdT">
+                                        <rect key="frame" x="0.0" y="0.0" width="227" height="32"/>
+                                        <segments>
+                                            <segment title="Standard"/>
+                                            <segment title="Hybrid"/>
+                                            <segment title="Satellite"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="mapTypeChanged:" destination="C32-cy-nNP" eventType="valueChanged" id="pAj-K9-aV0"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="tGs-Np-3Kz" firstAttribute="bottom" secondItem="b2y-DH-zdT" secondAttribute="bottom" constant="1" id="0dv-nJ-44Z"/>
-                            <constraint firstItem="b2y-DH-zdT" firstAttribute="centerX" secondItem="uNj-8P-Msa" secondAttribute="centerX" id="7pj-Y2-feN"/>
-                            <constraint firstItem="tGs-Np-3Kz" firstAttribute="bottom" secondItem="icS-Mi-zSR" secondAttribute="bottom" id="T8V-hg-8bY"/>
-                            <constraint firstItem="icS-Mi-zSR" firstAttribute="leading" secondItem="tGs-Np-3Kz" secondAttribute="leading" id="YpK-iD-hfL"/>
-                            <constraint firstItem="tGs-Np-3Kz" firstAttribute="trailing" secondItem="icS-Mi-zSR" secondAttribute="trailing" id="blw-lw-XZ0"/>
-                            <constraint firstItem="icS-Mi-zSR" firstAttribute="top" secondItem="tGs-Np-3Kz" secondAttribute="top" id="d3P-Ki-d83"/>
+                            <constraint firstItem="J8j-y1-oeu" firstAttribute="trailing" secondItem="tGs-Np-3Kz" secondAttribute="trailing" id="XUW-XX-ZiC"/>
+                            <constraint firstItem="6AI-YA-wsd" firstAttribute="top" secondItem="tGs-Np-3Kz" secondAttribute="top" constant="740" id="bS3-Uf-Vb9"/>
+                            <constraint firstItem="J8j-y1-oeu" firstAttribute="bottom" secondItem="tGs-Np-3Kz" secondAttribute="bottom" id="kMV-eI-Qo9"/>
+                            <constraint firstItem="J8j-y1-oeu" firstAttribute="leading" secondItem="tGs-Np-3Kz" secondAttribute="leading" id="qoh-K5-yFp"/>
+                            <constraint firstItem="6AI-YA-wsd" firstAttribute="centerX" secondItem="uNj-8P-Msa" secondAttribute="centerX" id="t17-EJ-5ga"/>
+                            <constraint firstItem="J8j-y1-oeu" firstAttribute="top" secondItem="tGs-Np-3Kz" secondAttribute="top" id="xXU-5c-smh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tGs-Np-3Kz"/>
                     </view>
