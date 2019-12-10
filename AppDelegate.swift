@@ -29,8 +29,8 @@ var window: UIWindow?
         }
         
         settings.synchronize()
-//        NSLog("Sort field: %@", settings.string(forKey: Constants.kSortField)!)
-//        NSLog("Sort direction: \(settings.bool(forKey: Constants.kSortDirectionAscending))")
+        NSLog("Sort field: %@", settings.string(forKey: Constants.kSortField)!)
+        NSLog("Sort direction: \(settings.bool(forKey: Constants.kSortDirectionAscending))")
         
         return true
     }
